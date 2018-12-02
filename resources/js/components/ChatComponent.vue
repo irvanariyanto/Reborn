@@ -3,7 +3,9 @@
         <div class="card">
             <div class="card-header">Chats</div>
             <div class="card-body">
-                Chats
+                Message
+                <chat-message-component></chat-message-component>
+                <chat-form-component></chat-form-component>
             </div>
         </div>
     </div>

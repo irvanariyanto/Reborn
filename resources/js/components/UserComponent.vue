@@ -3,7 +3,9 @@
         <div class="card">
             <div class="card-header">Users</div>
             <div class="card-body">
-                Users
+                <div class="users">
+                    <a href="#">Krunal</a>
+                </div>
             </div>
         </div>
     </div>
@@ -16,3 +18,11 @@
         }
     }
 </script>
+
+<style>
+    .users {
+        background-color: #fff;
+        border-radius: 3px;
+    }
+</style>
+

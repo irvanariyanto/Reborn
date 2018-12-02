@@ -1,13 +1,39 @@
 <template>
     <div class="message_area">
-        <message-component></message-component>
+        <message-component 
+            v-for="message in messages" 
+            :key="message.id" 
+            :message="message">
+        </message-component>  
     </div>
 </template>
 
 <script>
+    import Event from '../event.js';
+
     export default {
+        data() {
+            return {
+                messages: []
+            }
+        },
         mounted() {
-            console.log('Component mounted.')
+            axios.get('/message').then((response) => {
+                console.log(response.data);
+                this.messages = response.data;
+            });
+            Event.$on('added_message', (message) => {
+                this.messages.unshift(message);
+            });
         }
     }
 </script>
+<style>
+    .message-area {
+        height: 400px;
+        max-height: 400px;
+        overflow-y: scroll;
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+    }
+</style>
